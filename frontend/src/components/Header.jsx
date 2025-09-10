@@ -69,7 +69,7 @@ const Header = () => {
         <div className="hidden md:flex items-center space-x-4">
           {isAuthenticated ? (
             <>
-              <Link to="/profile"> {/* ðŸ‘ˆ Made the user info clickable */}
+              <Link to="/profile"> 
                 <div className="flex items-center space-x-3 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10 hover:bg-white/10 transition-colors cursor-pointer">
                   <User className="w-4 h-4 text-gray-300" />
                   <span className="text-sm text-white font-medium">

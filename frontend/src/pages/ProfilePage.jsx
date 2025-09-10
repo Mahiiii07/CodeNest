@@ -1,4 +1,3 @@
-// src/pages/ProfilePage.jsx
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
@@ -75,8 +74,6 @@ const ProfilePage = () => {
             console.error('Failed to fetch user blogs:', err);
         }
     };
-
-    // ✅ Updated fetchUserActivity using the same logic as BatchHistoryPage and ProjectHistoryPage
     const fetchUserActivity = async () => {
         try {
             setLoading(true);
@@ -251,8 +248,6 @@ const ProfilePage = () => {
             setLoading(false);
         }
     };
-
-    // ✅ Enhanced helper function with better error handling and debug logs
     const getFormattedJoinDate = (dateStr) => {
         console.log('Formatting date:', dateStr); // Debug log
 

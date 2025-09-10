@@ -1,9 +1,4 @@
 import axios from 'axios';
-
-// ✅ Make sure this matches your Django server
-// const API_BASE_URL = 'http://192.168.0.107:5173/api';
-// services/api.js
-// const API_BASE_URL = 'http://192.168.0.107:8000/api';
 const API_BASE_URL = "http://127.0.0.1:8000/api";
 
 const api = axios.create({
@@ -77,22 +72,6 @@ api.interceptors.response.use(
   }
 );
 
-
-// export const authAPI = {
-//   register: (userData) => api.post('/auth/register/', userData),
-//   login: (credentials) => api.post('/auth/login/', credentials),
-//   logout: () => {
-//     const refreshToken = localStorage.getItem('refreshToken');
-//     return api.post('/auth/logout/', { refresh_token: refreshToken });
-//   },
-//   profile: () => api.get('/auth/profile/'),
-//   updateProfile: (userData) => api.put('/auth/profile/', userData),
-//   resendVerification: () => api.post('/auth/resend-verification/'),
-//   refreshToken: (refreshToken) => api.post('/token/refresh/', { refresh: refreshToken }),
-// };
-
-// src/services/api.js (add to your existing authAPI object)
-
 export const authAPI = {
     register: (userData) => api.post('/auth/register/', userData),
     login: (credentials) => api.post('/auth/login/', credentials),
@@ -117,9 +96,6 @@ export const authAPI = {
     delete: (url) => api.delete(url),
 };
 
-
-
-
 // Plagiarism API (Faculty)
 export const plagiarismAPI = {
   batchCheck: (formData) =>
@@ -130,7 +106,6 @@ export const plagiarismAPI = {
   getRecentBatches: () => api.get('/plagiarism/batches/recent/'),
   getBatchResults: (batchId) => api.get(`/plagiarism/batch/${batchId}/`),
 };
-
 
 // Project Analysis API (Student)
 export const analysisAPI = {
@@ -144,5 +119,3 @@ export const analysisAPI = {
 };
 
 export default api;
-
-

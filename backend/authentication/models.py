@@ -1,4 +1,3 @@
-# authentication/models.py
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import EmailValidator
 from django.db import models
@@ -21,8 +20,6 @@ class CustomUser(AbstractUser):
     created_at = models.DateTimeField(auto_now_add=True)
     is_email_verified = models.BooleanField(default=False)
     email_verification_token = models.CharField(max_length=255, blank=True, null=True)
-    
-    # ✅ NEW FIELDS FOR PASSWORD RESET
     reset_password_code = models.CharField(max_length=6, blank=True, null=True)
     reset_code_expiry = models.DateTimeField(blank=True, null=True)
 

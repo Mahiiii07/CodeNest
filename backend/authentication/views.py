@@ -1,4 +1,3 @@
-# authentication/views.py
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -10,14 +9,9 @@ from django.utils import timezone
 from datetime import timedelta
 from .email_utils import send_verification_email
 import logging
-# Add this import at the top if not already present
 from django.http import HttpResponse
-
-# authentication/views.py (add these to your existing file)
 import secrets
 import string
-
-# Add these imports at the top
 from .serializers import (
     UserRegistrationSerializer, UserSerializer,
     ForgotPasswordSerializer, VerifyResetCodeSerializer, ResetPasswordSerializer
@@ -57,7 +51,7 @@ def register(request):
                     }
                 }
                 
-                # ✅ Add email verification message
+                # email verification message
                 if email_sent:
                     response_data['email_message'] = 'Verification email sent successfully. Please check your inbox and click the verification link.'
                 else:
@@ -73,17 +67,6 @@ def register(request):
     
     logger.warning(f"Registration failed - validation errors: {serializer.errors}")
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-# @api_view(['PUT'])
-# @permission_classes([IsAuthenticated])
-# def update_profile(request):
-#     user = request.user
-#     serializer = UserSerializer(user, data=request.data, partial=True)
-#     if serializer.is_valid():
-#         serializer.save()
-#         return Response(serializer.data)
-#     return Response(serializer.errors, status=400)
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -144,7 +127,7 @@ def logout_view(request):
     except Exception as e:
         logger.error(f"Logout error: {str(e)}")
         return Response({
-            'message': 'Logout successful'  # Still return success even if token blacklisting fails
+            'message': 'Logout successful'  
         }, status=status.HTTP_200_OK)
 
 @api_view(['GET', 'PUT', 'PATCH'])
@@ -155,7 +138,7 @@ def profile(request):
     
     if request.method == 'GET':
         return Response({
-            'user': UserSerializer(user).data  # Make sure this includes is_email_verified
+            'user': UserSerializer(user).data  
         }, status=status.HTTP_200_OK)
     
     elif request.method in ['PUT', 'PATCH']:
@@ -181,8 +164,6 @@ def profile(request):
             'details': serializer.errors
         }, status=status.HTTP_400_BAD_REQUEST)
 
-
-# views.py
 @api_view(['GET'])
 @permission_classes([AllowAny])
 def verify_email(request, token):

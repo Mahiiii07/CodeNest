@@ -54,7 +54,6 @@ const AppRoutes = () => {
               : <Register />
           } />
 
-          {/* Faculty Routes - New Enhanced Workflow */}
           <Route path="/faculty" element={
             <ProtectedRoute requiredRole="faculty">
               <Navigate to="/faculty/upload" replace />
@@ -76,7 +75,6 @@ const AppRoutes = () => {
             </ProtectedRoute>
           } />
 
-
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/profile" element={
             <ProtectedRoute>
@@ -84,7 +82,6 @@ const AppRoutes = () => {
             </ProtectedRoute>
           } />
 
-          {/* Student Routes - New Enhanced Workflow */}
           <Route path="/student" element={
             <ProtectedRoute requiredRole="student">
               <Navigate to="/student/upload" replace />

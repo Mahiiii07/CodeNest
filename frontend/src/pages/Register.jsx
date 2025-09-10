@@ -142,7 +142,7 @@ const Register = () => {
     const result = await register(formData);
 
     if (result.success) {
-      // ✅ Check for email verification message
+      //  Check for email verification message
       if (result.email_message) {
         setSuccess(
           `🎉 Registration successful! ${result.email_message} Please check your inbox and click the verification link to activate your account.`

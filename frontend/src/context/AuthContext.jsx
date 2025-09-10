@@ -17,17 +17,16 @@ export const AuthProvider = ({ children }) => {
     return savedUser ? JSON.parse(savedUser) : null;
   });
   const [isAuthenticated, setIsAuthenticated] = useState(!!user);
-  const [loading, setLoading] = useState(false); // ← Added missing loading state
+  const [loading, setLoading] = useState(false); 
 
-  // Update user function - properly implemented
+  // user function 
   const updateUser = (userData) => {
     const updatedUser = { ...user, ...userData };
     setUser(updatedUser);
-    setIsAuthenticated(true); // Ensure auth state stays true
+    setIsAuthenticated(true); 
     localStorage.setItem('user', JSON.stringify(updatedUser));
   };
 
-  // In AuthContext.jsx, update your login function:
 const login = async (credentials) => {
   setLoading(true);
   try {
@@ -40,7 +39,7 @@ const login = async (credentials) => {
     localStorage.setItem('accessToken', tokens.access);
     localStorage.setItem('refreshToken', tokens.refresh);
     
-    // ✅ Fetch fresh profile data after login
+    //  Fetch fresh profile data after login
     try {
       const profileResponse = await authAPI.profile();
       const freshUserData = profileResponse.data.user;
@@ -61,9 +60,6 @@ const login = async (credentials) => {
   }
 };
 
-
-  // In AuthContext.jsx, update your register function:
-// In AuthContext.jsx
 const register = async (userData) => {
   setLoading(true);
   try {
@@ -144,14 +140,14 @@ const register = async (userData) => {
 
   const value = {
     user,
-    setUser, // Added setUser for direct access if needed
+    setUser, 
     login,
     register,
     logout,
     updateUser,
-    loading, // ← Now properly declared
-    setLoading, // Added for components that need to control loading
-    isAuthenticated, // Use state variable instead of computed value
+    loading, 
+    setLoading, 
+    isAuthenticated, 
     isFaculty: user?.role === 'faculty',
     isStudent: user?.role === 'student',
   };

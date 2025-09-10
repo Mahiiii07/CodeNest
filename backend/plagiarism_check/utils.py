@@ -482,7 +482,7 @@ def calculate_similarity_features_enhanced(features1, features2):
         'structure_difference': 1 - length_similarity
     }
     
-    # 🔥 FIX: Force 100% similarity for exact file matches
+    # Force 100% similarity for exact file matches
     if hash_similarity >= 0.8:  # If 80% or more files are identical
         print(f"  🚨 EXACT MATCH DETECTED: Setting overall similarity to 1.0")
         similarity_features['overall_similarity'] = 1.0

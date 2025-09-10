@@ -1,4 +1,3 @@
-// src/components/VerifyResetCode.jsx
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, ArrowLeft, CheckCircle } from 'lucide-react';

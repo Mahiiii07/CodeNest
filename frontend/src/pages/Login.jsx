@@ -166,14 +166,11 @@ const Login = () => {
     <Loading />
   ) : (
     <>
-      {/* <LogIn size={20} className="shrink-0" /> icon */}
-      <span>Sign In</span>                      {/* text */}
+      <span>Sign In</span>                      
     </>
   )}
 </motion.button>
-
           </form>
-
           <div className="mt-6 text-center">
             <p className="text-gray-400">
               Don't have an account?{' '}

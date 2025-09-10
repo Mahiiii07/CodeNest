@@ -230,32 +230,6 @@ const BlogPage = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPosts.map((post, index) => (
-            // <motion.article key={post.id} className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-4 hover:border-white/20 transition-all duration-300 group cursor-pointer h-80 flex flex-col" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }} whileHover={{ y: -5 }} onClick={() => setSelectedPost(post)}>
-            //   <div className="mb-3">
-            //     {/* <div className="w-full h-32 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-lg mb-3 flex items-center justify-center"><span className="text-2xl">📝</span></div> */}
-            //     <div className="flex items-center justify-between mb-3">
-            //       <span className="inline-block px-2 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-medium">{getRoleDisplay(post.author_role)}</span>
-            //       {isAuthenticated && user?.id === post.author && (
-            //         <div className="flex space-x-1">
-            //           <button onClick={(e) => { e.stopPropagation(); startEditing(post); }} className="p-1.5 bg-blue-500/20 text-blue-300 rounded-lg hover:bg-blue-500/30 transition-colors" title="Edit post"><Edit className="w-3 h-3" /></button>
-            //           <button onClick={(e) => { e.stopPropagation(); handleDeletePost(post.id); }} className="p-1.5 bg-red-500/20 text-red-300 rounded-lg hover:bg-red-500/30 transition-colors" title="Delete post"><Trash2 className="w-3 h-3" /></button>
-            //         </div>
-            //       )}
-            //     </div>
-            //   </div>
-
-            //   <h2 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors line-clamp-2 flex-1">{post.title}</h2>
-            //   <p className="text-gray-300 mb-3 text-sm line-clamp-3 flex-1">{post.content}</p>
-
-            //   <div className="mt-auto">
-            //     <div className="flex items-center justify-between text-xs text-gray-400 mb-2">
-            //       <div className="flex items-center"><User className="w-3 h-3 mr-1" /><span className="truncate max-w-20">{post.author_name}</span></div>
-            //       <div className="flex items-center"><MessageCircle className="w-3 h-3 mr-1" /><span>{post.comments?.length || 0}</span></div>
-            //     </div>
-            //     <div className="flex items-center text-xs text-gray-400 mb-2"><Calendar className="w-3 h-3 mr-1" /><span>{formatDate(post.created_at)}</span></div>
-            //     <div className="flex items-center text-blue-400 group-hover:text-blue-300 transition-colors text-xs"><span className="font-medium">Read more</span><ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" /></div>
-            //   </div>
-            // </motion.article>
             <motion.article
               key={post.id}
               className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 hover:border-white/20 transition-all duration-300 group cursor-pointer h-80 flex flex-col"

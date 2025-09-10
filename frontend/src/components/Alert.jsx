@@ -1,4 +1,3 @@
-// src/components/Alert.jsx (enhanced version)
 import { useEffect } from 'react';
 import { AlertCircle, CheckCircle, X } from 'lucide-react';
 
@@ -19,7 +18,7 @@ const Alert = ({ type = 'info', message, onClose, autoClose = false }) => {
 
     const Icon = type === 'success' ? CheckCircle : AlertCircle;
 
-    // ✅ AUTO CLOSE SUCCESS MESSAGES AFTER 5 SECONDS
+    //  AUTO CLOSE SUCCESS MESSAGES AFTER 5 SECONDS
     useEffect(() => {
         if (autoClose || type === 'success') {
             const timer = setTimeout(() => {

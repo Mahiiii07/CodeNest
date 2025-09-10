@@ -1,4 +1,3 @@
-// src/components/Loading.jsx
 const Loading = ({ size = 'md', text = '' }) => {
     const sizeClasses = {
         sm: 'h-4 w-4',

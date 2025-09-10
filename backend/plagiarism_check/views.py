@@ -7,15 +7,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.conf import settings
 from .models import BatchUpload, ProjectSubmission, PlagiarismResult
-# from .utils import extract_batch_zip_file, extract_code_features, calculate_similarity_features,calculate_similarity_features_enhanced,extract_code_features_enhanced
 from .ml_models import predict_plagiarism
 import numpy as np
 from django.db import models
-# from django.db import models
-# from .models import BatchUpload, ProjectSubmission, PlagiarismResult
 from .utils import extract_batch_zip_file_recursive, extract_code_features_enhanced, calculate_similarity_features_enhanced
-
-
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -97,10 +92,7 @@ def batch_plagiarism_check(request):
                         'nested_info': zip_info
                     }
 
-            # Continue with existing plagiarism detection logic...
-            # [Rest of the plagiarism detection code remains the same]
-
-            # Generate plagiarism report (add this before your return statement)
+            # Generate plagiarism report 
             report = []
             results = []
 
@@ -126,7 +118,7 @@ def batch_plagiarism_check(request):
                     features1 = project_features[id1]['features']
                     features2 = project_features[id2]['features']
                     
-                    # Calculate similarity using your enhanced function
+                    # Calculate similarity using enhanced function
                     try:
                         similarity_metrics = calculate_similarity_features_enhanced(features1, features2)
                         similarity_score = similarity_metrics.get('overall_similarity', 0)
@@ -144,7 +136,7 @@ def batch_plagiarism_check(request):
                             comparison_details=similarity_metrics
                         )
                         
-                        # Add to report for frontend (now using obj1.student_id instead of id1.student_id)
+                        # Add to report for frontend 
                         report.append({
                             'student_id_1': obj1.student_id,
                             'student_id_2': obj2.student_id,
@@ -173,10 +165,6 @@ def batch_plagiarism_check(request):
 
             print(f"Plagiarism detection complete. Generated report for {len(project_ids)} students.")
 
-
-            
-            # Enhanced response with nested structure
-            # Enhanced response with nested structure
             return Response({
                 'batch_id': batch.id,
                 'batch_name': batch_name,
@@ -208,7 +196,7 @@ def get_batch_results(request, batch_id):
         results = PlagiarismResult.objects.filter(batch=batch)
         submissions = batch.submissions.all()
 
-        # 🔥 FIX: Correct plagiarism counting
+        # plagiarism counting
         total_projects = submissions.count()
         flagged_student_ids = set()
         
@@ -308,7 +296,7 @@ def get_batch_results(request, batch_id):
                 },
                 'detailed_results': detailed_results,
                 'student_summary': student_summary,
-                'hierarchical_projects': hierarchical_projects  # 🔥 ADD THIS
+                'hierarchical_projects': hierarchical_projects
             }, status=status.HTTP_200_OK)
 
     except BatchUpload.DoesNotExist:
@@ -327,7 +315,7 @@ def get_faculty_batches(request):
     
     batches = BatchUpload.objects.filter(faculty=request.user).order_by('-uploaded_at')
     
-    # Apply pagination
+    # pagination
     paginator = PageNumberPagination()
     paginator.page_size = 12
     result_page = paginator.paginate_queryset(batches, request)

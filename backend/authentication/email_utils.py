@@ -10,7 +10,6 @@ def generate_verification_token():
     alphabet = string.ascii_letters + string.digits
     return ''.join(secrets.choice(alphabet) for _ in range(32))
 
-# authentication/email_utils.py
 def send_verification_email(user, request):
     """Send email verification email to user"""
     # Generate verification token
@@ -90,9 +89,6 @@ def send_verification_email(user, request):
     except Exception as e:
         print(f"Failed to send verification email: {e}")
         return False
-
-
-# authentication/email_utils.py (add this function)
 
 def send_reset_code_email(email, reset_code):
     """Send password reset code email"""

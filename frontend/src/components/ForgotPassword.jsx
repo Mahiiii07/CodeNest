@@ -1,4 +1,3 @@
-// src/components/ForgotPassword.jsx
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, User, ArrowLeft, Send } from 'lucide-react';
@@ -111,8 +110,7 @@ const ForgotPassword = ({ onBack, onCodeSent }) => {
     <Loading />
   ) : (
     <>
-      {/* <LogIn size={20} className="shrink-0" /> icon */}
-      <span>Send Reset Code</span>                      {/* text */}
+      <span>Send Reset Code</span>                      
     </>
   )}
 </motion.button>

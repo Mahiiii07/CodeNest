@@ -43,14 +43,11 @@ const Footer = () => {
                     </div>
 
                     {/* Company Links */}
-                    {/* // In your Footer.jsx, update the Company Links section: */}
                     <div>
                         <h3 className="font-bold text-white mb-4">Company</h3>
                         <ul className="space-y-2">
                             <li><Link to="/blog" className="text-gray-300 hover:text-white transition-colors">Blog</Link></li>
-                            {/* <li><a href="#about" className="text-gray-300 hover:text-white transition-colors">About Us</a></li> */}
-                            <li><Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link></li> {/* â† Make this a Link */}
-                            {/* <li><a href="#careers" className="text-gray-300 hover:text-white transition-colors">Careers</a></li> */}
+                            <li><Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link></li> 
                         </ul>
                     </div>
 

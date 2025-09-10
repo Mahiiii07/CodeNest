@@ -1,4 +1,3 @@
-// src/components/ResetPassword.jsx
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Lock, Eye, EyeOff, CheckCircle, ArrowLeft } from 'lucide-react';

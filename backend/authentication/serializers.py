@@ -65,22 +65,16 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email', 'role', 'first_name', 'last_name', 'is_email_verified']
         read_only_fields = ['id', 'username']
 
-# authentication/serializers.py (add these to your existing file)
-
-# authentication/serializers.py (update ForgotPasswordSerializer)
-
 class ForgotPasswordSerializer(serializers.Serializer):
     username = serializers.CharField()
     email = serializers.EmailField()
 
     def validate_email(self, value):
-        # Basic email format validation
         if not value:
             raise serializers.ValidationError("Email is required.")
         return value
 
     def validate_username(self, value):
-        # Basic username validation
         if not value:
             raise serializers.ValidationError("Username is required.")
         return value
@@ -89,8 +83,6 @@ class ForgotPasswordSerializer(serializers.Serializer):
         """Custom validation to check if user exists"""
         username = data.get('username')
         email = data.get('email')
-        
-        # Check if user exists with both username and email
         if not CustomUser.objects.filter(username=username, email=email).exists():
             raise serializers.ValidationError(
                 "No user found with this username and email combination. Please verify your credentials."

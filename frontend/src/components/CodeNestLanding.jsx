@@ -135,8 +135,6 @@ const Landing = () => {
     }
   ];
 
-
-
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
@@ -355,18 +353,6 @@ const Landing = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
           >
-            {/* <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">99%</div>
-              <div className="text-gray-400 text-sm">Accuracy Rate</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">10k+</div>
-              <div className="text-gray-400 text-sm">Projects Analyzed</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">500+</div>
-              <div className="text-gray-400 text-sm">Institutions</div>
-            </div> */}
           </motion.div>
 
           {/* Scroll Indicator */}
@@ -445,12 +431,6 @@ const Landing = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            {/* <h2 className="text-2xl md:text-3xl font-bold mb-2">
-              For{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                Educators
-              </span>
-            </h2> */}
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               For{' '}
               <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
@@ -489,15 +469,6 @@ const Landing = () => {
                      <p className="text-gray-400 text-sm">Comprehensive reports with detailed insights and similarity scores.</p>
                    </div>
                  </div>
-                 {/* <div className="flex items-start space-x-3">
-                   <div className="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                     <Shield className="w-5 h-5 text-cyan-400" />
-                   </div>
-                   <div>
-                     <h4 className="text-lg font-semibold mb-1">Enterprise Security</h4>
-                     <p className="text-gray-400 text-sm">Bank-level security with role-based access control and FERPA compliance.</p>
-                   </div>
-                 </div> */}
                  <div className="flex items-start space-x-3">
                    <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
                      <Zap className="w-5 h-5 text-green-400" />
@@ -635,15 +606,6 @@ const Landing = () => {
                      <p className="text-gray-400 text-sm">Verify your work is original before submitting to avoid academic issues.</p>
                    </div>
                  </div>
-                 {/* <div className="flex items-start space-x-3">
-                   <div className="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                     <BookOpen className="w-5 h-5 text-pink-400" />
-                   </div>
-                   <div>
-                     <h4 className="text-lg font-semibold mb-1">Learning Resources</h4>
-                     <p className="text-gray-400 text-sm">Access tutorials and best practices to improve your skills.</p>
-                   </div>
-                 </div> */}
                  <div className="flex items-start space-x-3">
                    <div className="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
                      <BarChart3 className="w-5 h-5 text-cyan-400" />

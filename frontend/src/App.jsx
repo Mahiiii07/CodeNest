@@ -37,7 +37,6 @@ const AppRoutes = () => {
 
       <main className="flex-1">
         <Routes>
-          {/* Public Routes */}
           <Route path="/" element={
             isAuthenticated
               ? <Navigate to={user?.role === 'faculty' ? '/faculty' : '/student'} replace />
@@ -120,7 +119,7 @@ const AppRoutes = () => {
 
 function App() {
   return (
-    <ErrorBoundary> {/* ← WRAP EVERYTHING WITH ERROR BOUNDARY */}
+    <ErrorBoundary> 
       <Router>
         <AuthProvider>
           <AppRoutes />

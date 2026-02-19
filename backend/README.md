@@ -10,3 +10,9 @@
 
 ## Running the Server
 
+To run admin panel : python manage.py runserver
+To run backend : python manage.py runserver 0.0.0.0:8000
+Super user of admin panel :
+
+- username : admin
+- paddword : admin123

@@ -7,3 +7,4 @@
 
 ## Running the Development Server
 
+npm run dev
